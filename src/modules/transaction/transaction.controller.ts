@@ -3,7 +3,7 @@ import { getTransaction } from './transaction.service';
 
 export async function getTransactionByHash(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
-    const { hash } = req.params;
+    const hash = req.params.hash as string;
     const data = await getTransaction(hash);
     res.json(data);
   } catch (err) {

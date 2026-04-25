@@ -3,7 +3,7 @@ import { getWalletBalance } from './wallet.service';
 
 export async function getBalance(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
-    const { address } = req.params;
+    const address = req.params.address as string;
     const data = await getWalletBalance(address);
     res.json(data);
   } catch (err) {
